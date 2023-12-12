@@ -1,1 +1,50 @@
-<div Id="houses-list"></div>
+<div>
+  <h1 class="text-center">
+    Want to buy or sell a house?
+  </h1>
+</div>
+
+<!-- where the form will go -->
+<form onsubmit="app.HousesController.createHouse()" id="create-house-form"
+  class="row justify-content-center bg-white mb-4">
+  <div class="col-10 text-center fw-bold">
+    List your house here:
+  </div>
+  <div class="mb-2 col-4">
+    <label for="bedrooms"># Bedrooms</label>
+    <input required class="form-control" type="number" id="bedrooms" name="bedrooms" placeholder="How many bedrooms?">
+  </div>
+  <div class="mb-2 col-4">
+    <label for="bathrooms"># Bathrooms</label>
+    <input required class="form-control" type="number" id="bedrooms" name="bathrooms" placeholder="How many bathrooms?">
+  </div>
+  <div class="mb-2 col-4">
+    <label for="levels"># Floors</label>
+    <input required class="form-control" type="number" id="levels" name="levels" placeholder="How many floors?">
+  </div>
+  <div class="mb-2 col-4">
+    <label for="house-year">Year House Built</label>
+    <input required class="form-control" type="number" id="house-year" name="year" value="1998">
+  </div>
+  <div class="mb-2 col-12">
+    <label for="house-image">Image Url of House</label>
+    <input required class="form-control" type="url" id="house-image" name="imgUrl">
+  </div>
+  <div class="mb-2 col-6">
+    <label for="house-price">Sell Price</label>
+    <input required class="form-control" type="number" id="house-price" name="price" value="">
+  </div>
+  <div class="mb-2 col-12">
+    <label for="house-description">Description</label>
+    <textarea name="description" id="house-description" placeholder="Tell us about your house:" rows="5"
+      class="w-100 form-control"></textarea>
+  </div>
+  <div class="mb-2 col-12 text-end">
+    <button type="submit" class="btn btn-primary">Create House + <i class="mdi mdi-plus"></i></button>
+  </div>
+
+</form>
+
+
+<!-- where the house templates will go -->
+<div id="houses-list"></div>
