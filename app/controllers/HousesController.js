@@ -2,6 +2,8 @@ import { AppState } from "../AppState.js"
 import { housesService } from "../services/HousesService.js"
 import { setHTML } from "../utils/Writer.js"
 import { Pop } from "../utils/Pop.js"
+import { getFormData } from "../utils/FormHandler.js"
+
 
 
 
@@ -19,6 +21,7 @@ export class HousesController {
     _drawHouses()
     AppState.on('houses', _drawHouses)
     this.getHouses()
+
   }
 
   async getHouses() {
@@ -34,7 +37,16 @@ export class HousesController {
     try {
       event.preventDefault()
       console.log('form show up?')
+      const form = event.target
+      const formData = getFormData(form)
+      console.log(formData, '🗂️')
+      await housesService.createHouse(formData)
+      // @ts-ignore
+      form.reset()
 
-    } catch { }
+    } catch (error) {
+      console.error(error)
+      Pop.toast(error.message)
+    }
   }
 }

@@ -19,6 +19,9 @@ class HousesService {
   async createHouse(formData) {
     const response = await api.post('api/houses', formData)
     console.log(response, '🏣')
+    const newHouse = new House(response.data)
+    console.log(newHouse, '🏢❤️')
+    AppState.houses.push(newHouse)
   }
 
 }

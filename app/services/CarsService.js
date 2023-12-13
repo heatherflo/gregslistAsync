@@ -8,7 +8,7 @@ import { api } from "./AxiosService.js"; // this is a instance of axios we can u
 
 
 
-class CarsService{
+class CarsService {
   async removeCar(carId) {
     const response = await api.delete(`api/cars/${carId}`)
     console.log('🚗👋📡', response); //🧪
@@ -24,7 +24,7 @@ class CarsService{
     AppState.cars.push(newCar)// 🧪 did this add it to the page? did it trigger a draw?
   }
 
-  async getCars(){
+  async getCars() {
     const response = await fetch('https://bcw-sandbox.herokuapp.com/api/cars', {})
     const axiosResponse = await api.get('api/cars') // Axios is a library that makes fetch requests for us. It simplifies the process of making more complex fetch requests and simplifies our response
     console.log('🚗📡', response, axiosResponse); //🧪🧪🧪
